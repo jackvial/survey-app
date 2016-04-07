@@ -1,0 +1,15 @@
+{
+  "name": "survey-app",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "Jack Vial <vialjack@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "skeleton": "skeleton-css#^2.0.4"
+  }
+}
