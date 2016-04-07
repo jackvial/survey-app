@@ -15,23 +15,27 @@ class SurveyList extends React.Component {
             };
         }
         componentDidMount() {
-            let _this = this;
-            fetchJsonp(this.props.url).then(function(response) {
+            fetchJsonp(this.props.url).then(response => {
                 return response.json();
-            }).then(function(data) {
+            }).then(data => {
                 console.log('parsed data', data);
-                _this.setState({
+
+                // Arrow functions do not have their own 'this' so no need to
+                // do _this = this or bind(this) etc... 
+                this.setState({
                   data: data
                 });
-            }).catch(function(ex) {
+            }).catch(ex => {
                 console.log('parsing failed', ex);
             });
         }
         render() {
-            let surveyNodes = this.state.data.map(function(survey) {
-                return (<Survey description={survey.description}></Survey>);
+            let surveyNodes = this.state.data.map(survey => {
+
+                // There is a space character in the short_ description key so had to use square bracket notation
+                return (<Survey title={survey.title} shortDescription={survey['short_ description']} dateCreated={survey.creation_date}></Survey>);
             });
-            return (<div>{surveyNodes }</div>);
+            return (<div>{surveyNodes}</div>);
         }
 }
 
