@@ -7,7 +7,7 @@ import SurveyList from './SurveyList';
  */
 class App extends React.Component {
 	render(){
-		return (<div><SurveyList url="http://www.mocky.io/v2/56fcf6871000000e13aed252"></SurveyList></div>)
+		return (<SurveyList url="http://www.mocky.io/v2/56fcf6871000000e13aed252"></SurveyList>)
 	}
 }
 export default App
