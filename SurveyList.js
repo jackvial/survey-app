@@ -30,10 +30,10 @@ class SurveyList extends React.Component {
             });
         }
         render() {
-            let surveyNodes = this.state.data.map(survey => {
+            let surveyNodes = this.state.data.map((survey, i) => {
 
                 // There is a space character in the short_ description key so had to use square bracket notation
-                return (<Survey title={survey.title} shortDescription={survey['short_ description']} dateCreated={survey.creation_date}></Survey>);
+                return (<Survey key={i} title={survey.title} shortDescription={survey['short_ description']} dateCreated={survey.creation_date}></Survey>);
             });
             return (<div>{surveyNodes}</div>);
         }
