@@ -2,14 +2,11 @@ import React from 'react';
 class SurveyDetail extends React.Component {
 	constructor(props) {
         super(props);
-
+        let id = parseInt(props.params.id, 10);
         let surveys =  JSON.parse(localStorage.getItem('surveys'));
-        let survey = {};
-        for(var i = 0; i < surveys.length; i++){
-        	if(surveys[i].id == props.params.id){
-        		survey = surveys[i];
-        	}
-        }
+
+        // Find the survey
+        let survey = surveys.find(i => i.id === id);
         this.state = {
             survey: survey
         };
