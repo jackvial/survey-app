@@ -38,3 +38,11 @@
     border-style: solid;
     font-size: 16px;
 }
+
+.active-link {
+	color: #00ff00;
+}
+
+a {
+	text-decoration: none;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
+import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import SurveyList from './SurveyList';
+import SurveyDetail from './SurveyDetail';
 
 /**
  * Top Level Component
@@ -7,7 +9,12 @@ import SurveyList from './SurveyList';
  */
 class App extends React.Component {
 	render(){
-		return (<SurveyList url="http://www.mocky.io/v2/56fcf6871000000e13aed252"></SurveyList>)
+		return (
+			<Router history={ hashHistory}>
+				<Route path="/" component={SurveyList}></Route>
+				<Route path="/surveyDetail/(:id)" component={SurveyDetail}></Route>
+			</Router>
+		);
 	}
 }
 export default App
