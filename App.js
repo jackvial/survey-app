@@ -10,11 +10,11 @@ import SurveyDetail from './SurveyDetail';
 class App extends React.Component {
 	render(){
 		return (
-			<Router history={ hashHistory}>
+			<Router history={hashHistory}>
 				<Route path="/" component={SurveyList}></Route>
 				<Route path="/surveyDetail/(:id)" component={SurveyDetail}></Route>
 			</Router>
 		);
 	}
 }
-export default App
+export default App;
