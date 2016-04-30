@@ -2,10 +2,15 @@ import React from 'react';
 import {Link, hashHistory} from 'react-router';
 import fetchJsonp from 'fetch-jsonp';
 import Survey from './Survey';
+import Loader from 'react-loader';
+
 class SurveyList extends React.Component {
         constructor(props) {
             super(props);
+
+            // Initial state
             this.state = {
+                loaded: false,
                 url: "http://www.mocky.io/v2/56fcf6871000000e13aed252",
                 data: [{ 
                   creation_date: "3/16/2016",
@@ -20,16 +25,16 @@ class SurveyList extends React.Component {
             fetchJsonp(this.state.url).then(response => {
                 return response.json();
             }).then(data => {
-                console.log('parsed data', data);
                 localStorage.setItem('surveys', JSON.stringify(data));
 
                 // Arrow functions do not have their own 'this' so no need to
                 // do _this = this or bind(this) etc... 
                 this.setState({
-                  data: data
+                  data: data,
+                  loaded: true
                 });
             }).catch(ex => {
-                console.log('parsing failed', ex);
+                console.warn('parsing failed', ex);
             });
         }
         render() {
@@ -42,7 +47,10 @@ class SurveyList extends React.Component {
                         </Link>
                     );
             });
-            return (<div className="survey-list">{surveyNodes}</div>);
+            return ( <Loader loaded={this.state.loaded}>
+                        <div className="survey-list">{surveyNodes}</div>
+                    </Loader>
+                );
         }
 }
 
