@@ -7,14 +7,13 @@ class SurveyDetail extends React.Component {
 
         // Find the survey
         let survey = surveys.find(i => i.id === id);
-        console.log('survey: ', survey );
         this.state = {
             survey: survey
         };
     }
     render() {
         return (
-            <div className="item">
+            <div className="item survey-detail ">
                 <h2>{this.state.survey.title}</h2>
                 <p>{this.state.survey.description}</p>
                 <div><b>Date Created: </b>{this.state.survey.creation_date}</div>

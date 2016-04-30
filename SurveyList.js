@@ -42,7 +42,7 @@ class SurveyList extends React.Component {
                         </Link>
                     );
             });
-            return (<div>{surveyNodes}</div>);
+            return (<div className="survey-list">{surveyNodes}</div>);
         }
 }
 
