@@ -1,4 +1,4 @@
-# FUN SERIES APRIL - REACT.JS WEB APPLICATION (Jack Vial)
+# React Master Detail App
 
 ### Setup
 
